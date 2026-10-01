@@ -101,6 +101,34 @@ test("two players finish an actual encrypted Solana/Arcium round", async ({
     });
     expect(possible.length).toBeGreaterThan(0);
     if (feedback!.exact === 5) break;
+    if (index === 0) {
+      // Replay one known non-winning guess as the second player. Identical
+      // feedback confirms that both independent identities query one secret.
+      for (const value of guess)
+        await guest
+          .getByRole("button", { name: `Choose ${names[value]}`, exact: true })
+          .click();
+      await guest
+        .getByRole("button", { name: "Submit guess", exact: true })
+        .click();
+      await expect
+        .poll(
+          async () => {
+            const response = await guest.request.get(
+              `${base}/api/room/${roomId}`,
+            );
+            const current = await response.json();
+            const clue = current.players?.[1]?.guesses[0];
+            if (!clue || clue.pending) return false;
+            expect(clue.failed).toBe(false);
+            expect(clue.exact).toBe(feedback!.exact);
+            expect(clue.misplaced).toBe(feedback!.misplaced);
+            return true;
+          },
+          { timeout: 60000, intervals: [1000, 3000] },
+        )
+        .toBe(true);
+    }
     guess = possible[0];
     await expect(
       host.getByRole("button", { name: "Choose Circle", exact: true }),

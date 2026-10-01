@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 const requests = new Map<string, { count: number; until: number }>();
-export function guard(request: NextRequest, limit = 24) {
+export function guard(
+  request: NextRequest,
+  limit = 120,
+  category = "mutation",
+) {
   const origin = request.headers.get("origin");
   try {
     if (origin && new URL(origin).host !== request.headers.get("host"))
@@ -14,7 +18,7 @@ export function guard(request: NextRequest, limit = 24) {
       { status: 403 },
     );
   }
-  const key = request.headers.get("x-forwarded-for")?.split(",")[0] ?? "local";
+  const key = `${category}:${request.headers.get("x-forwarded-for")?.split(",")[0] ?? "local"}`;
   const now = Date.now();
   let state = requests.get(key);
   if (!state || state.until < now) {

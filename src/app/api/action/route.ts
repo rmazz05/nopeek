@@ -51,6 +51,10 @@ export async function POST(request: NextRequest) {
         { status: 400 },
       );
     const { action, player, ...fields } = parsed.data;
+    if (action === "create") {
+      const rejected = guard(request, 4, "create");
+      if (rejected) return rejected;
+    }
     return NextResponse.json(await prepareAction(action, player, fields));
   } catch (error) {
     return apiError(error);
