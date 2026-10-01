@@ -1,0 +1,14 @@
+[toolchain]
+package_manager = "npm"
+[features]
+resolution = true
+skip-lint = false
+[programs.localnet]
+nopeek = "13i1GnJ4sFiG6Tp9PoQggo9aRh5tcsZoBGLnZBrT4TLo"
+[programs.devnet]
+nopeek = "13i1GnJ4sFiG6Tp9PoQggo9aRh5tcsZoBGLnZBrT4TLo"
+[provider]
+cluster = "devnet"
+wallet = "../.keys/sponsor.json"
+[scripts]
+test = "npx tsx ../scripts/test-chain.ts"

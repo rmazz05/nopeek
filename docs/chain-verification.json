@@ -1,0 +1,78 @@
+{
+  "verifiedAt": "2026-10-01T17:39:37.725Z",
+  "rpc": "http://localhost:8899",
+  "clusterOffset": 0,
+  "programId": "13i1GnJ4sFiG6Tp9PoQggo9aRh5tcsZoBGLnZBrT4TLo",
+  "roomId": "1o2v8f0fl3pqg",
+  "roomAddress": "GwLz8fmuSFW673kjDdnSo2zT6TFdyCVKN6VFtTdAPJMF",
+  "attempts": 5,
+  "checks": [
+    "MPC secret generation",
+    "Ciphertext-only room account",
+    "Host authorization",
+    "Locked roster",
+    "Nonplayer rejection",
+    "Symbol validation",
+    "MPC feedback consistency",
+    "Immutable ciphertext",
+    "Verified winner"
+  ],
+  "transactions": [
+    {
+      "action": "seal_room",
+      "signature": "57G3g7aY5vAigoYG1ozqji7daYLjbfYd5iufHsabSTUsZvwwhM4eENsWNcyDu68m4fiuwPdVvzc4v8iLvXPE3BN3"
+    },
+    {
+      "action": "seal_callback",
+      "signature": "3btJjXMRfm6fiJt5BB27gUh3ZrkQaP6FrXSmHxfrw6xviB7WRBDbh9aAShF6jqRefkfMrgHzqNvjbXw5HEV1TXm6"
+    },
+    {
+      "action": "join",
+      "signature": "47QzyXRWzVr9YGQukPLM3gs1ivkaEVYPLsXztyiayUaxq6MrvQcasKr3HYUSotviSu6Q3Wop8foeZMeeEit2vDsG"
+    },
+    {
+      "action": "start",
+      "signature": "676ZqrGPgSVsbgBYvvYKZdWBP3JS6PfiBHe493tefLEdK9aKeXQuLrGjCn4MPLysJeSXRcdTCjwixqNDrnDTnCjF"
+    },
+    {
+      "action": "guess_0",
+      "signature": "5sR3fDz7JjA7bLhLFszpGd77sg4FGrCfbartv4BxxKLMmpgMwbJa2U6r525FcwksMp2jp7ibxxp66QUGqusYmyTs"
+    },
+    {
+      "action": "guess_0_callback",
+      "signature": "5Aqx6cyBW3jBc26pzsWHV2KFvhN1XKC9NYMMjgEq8RbDhvZaAVPjngJnWwfB6s2F8MTpwiUvjfoFJMwtNy88BVdG"
+    },
+    {
+      "action": "guess_1",
+      "signature": "62g3GXB1etR9EB8Ru9mpkgguTCaGX4Lw55f9rHMdZUCeosBWGkr8zPsZoKk7fTzoKhyfTXzkHAuSunj8EfkUXcDg"
+    },
+    {
+      "action": "guess_1_callback",
+      "signature": "4t8S6KRpQVuHNTxvkZ61QjJ4GNkFmK3PhVFFbVpjnYrRsVgy2dTxheMq8HdNKy1A68W24G2s4nt4QCLfNUMu5QKX"
+    },
+    {
+      "action": "guess_2",
+      "signature": "3TeTJ5umKPLnLfQnyQUZEDZuPFLydv2zUTySw7ATJK3dC4r1DaTwZwRWYSmbqzn1axZdX3UTxM3N4D8b41DnqCvh"
+    },
+    {
+      "action": "guess_2_callback",
+      "signature": "WPzZ7Kgecya6pMqjAWVMuXgcCvS7cita2Wsv24DwGu6uPXToG32vSMsumUWgUvi9FHxDzvPYQCAUzhHkvdaJuSF"
+    },
+    {
+      "action": "guess_3",
+      "signature": "APNKaqkeJJo1RPM9mSMxSsHBw6bDQ18BjoitL39b2XSem6Q9V9wzVdL9g4k1uvQZKhr8NEsdvEwF9VQgg6r4EUk"
+    },
+    {
+      "action": "guess_3_callback",
+      "signature": "3GLeXWgHHA9EiqJgan4xb1giQoE7hnGbYdSFDQ68pjWy4TEFuyFPxagCUY6F7779nwWozFvEt1oHTsukEdmmC5EA"
+    },
+    {
+      "action": "guess_4",
+      "signature": "iG1JqG1Uhoz1Y9mnoX6tTcujtMKsqwykTVfTMV1F4V4rjmz2Fp59VnNpze8ENLbummfkaTLVjfGHXiUAdXPKXwe"
+    },
+    {
+      "action": "guess_4_callback",
+      "signature": "4NTQLaFq8a9Yf8d7ee9pkaQzyg33czTmHYXtfkoYyNR21fD2UU2aW6dEmwzFZZeovtknXawPgoLbBi4noSYBHcwg"
+    }
+  ]
+}

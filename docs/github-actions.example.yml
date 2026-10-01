@@ -1,0 +1,19 @@
+name: NOPEEK checks
+on: [push, pull_request]
+jobs:
+  web:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run dev > /tmp/nopeek-web.log 2>&1 &
+      - run: curl --retry 20 --retry-delay 1 --retry-connrefused --fail http://127.0.0.1:3033/api/health
+      - run: npm run test:e2e
+      - run: npm run build
