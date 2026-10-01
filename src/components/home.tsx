@@ -294,7 +294,6 @@ export function Home() {
               </label>
               <input
                 id="room-field"
-                autoFocus
                 maxLength={modal === "create" ? 32 : 200}
                 placeholder={
                   modal === "create"

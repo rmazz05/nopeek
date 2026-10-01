@@ -1,4 +1,19 @@
 import { test, expect } from "@playwright/test";
+test("room dialog contains keyboard focus and restores its trigger", async ({
+  page,
+}) => {
+  await page.goto("/");
+  const trigger = page.getByRole("button", {
+    name: "Create a room",
+    exact: true,
+  });
+  await trigger.focus();
+  await trigger.press("Enter");
+  await expect(page.getByLabel("Room name")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("dialog")).not.toBeVisible();
+  await expect(trigger).toBeFocused();
+});
 test("landing explains the game and opens practice", async ({ page }) => {
   await page.goto("/");
   await expect(
@@ -55,7 +70,9 @@ test("practice makes its privacy limit explicit", async ({ page }) => {
     "It is not cryptographically hidden.",
   );
   await page.getByRole("button", { name: "Close dialog" }).click();
-  await page.getByRole("button", { name: "How to play", exact: true }).click();
+  await page
+    .getByRole("button", { name: "How to play", exact: true })
+    .press("Enter");
   await expect(page.getByRole("dialog")).toContainText("The dots are counts.");
 });
 test("join form rejects invalid invitations", async ({ page }) => {

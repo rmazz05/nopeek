@@ -226,6 +226,7 @@ export function GameRoom({ id }: { id: string }) {
       if (
         target.tagName === "INPUT" ||
         target.tagName === "TEXTAREA" ||
+        target.closest("a, .game-header, .room-sidebar, .game-recovery") ||
         showGuide ||
         inspect ||
         !canPlay
@@ -253,6 +254,11 @@ export function GameRoom({ id }: { id: string }) {
           ),
         );
       } else if (event.key === "Enter") {
+        if (
+          target.closest("button") &&
+          !target.closest(".symbol-palette, .draft-slots")
+        )
+          return;
         event.preventDefault();
         void submit();
       }
